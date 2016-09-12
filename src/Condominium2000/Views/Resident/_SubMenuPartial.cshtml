@@ -1,0 +1,80 @@
+﻿@using Condominium2000.Helpers.Models
+@using Condominium2000.Resources.Resident
+@model Condominium2000.Helpers.Models.ResidentHelper.SubMenu
+
+@* Which SubMenuItem should be selected *@
+@{
+    var GeneraInformationClass = "sidebar_menu_item";
+    var GeneraInformationOnClick = "onclick = window.location.href='" + Url.Action("Index") + "'";
+    var QuestionsClass = "sidebar_menu_item";
+    var QuestionsOnClick = "onclick = window.location.href='" + Url.Action("Questions") + "'";
+    var GalleryClass = "sidebar_menu_item";
+    var GalleryOnClick = "onclick = window.location.href='" + Url.Action("Gallery") + "'";
+    var LinksClass = "sidebar_menu_item";
+    var LinksOnClick = "onclick = window.location.href='" + Url.Action("Links") + "'";
+    var BookRoomClass = "sidebar_menu_item";
+    var BookRoomOnClick = "onclick = window.location.href='" + Url.Action("BookRoom") + "'";
+
+    switch (Model)
+    {
+        case ResidentHelper.SubMenu.GeneraInformation:
+        {
+            GeneraInformationClass = "sidebar_menu_item_sel";
+            break;
+        }
+
+        case ResidentHelper.SubMenu.Questions:
+        {
+            QuestionsClass = "sidebar_menu_item_sel";
+            break;
+        }
+
+        case ResidentHelper.SubMenu.Gallery:
+        {
+            GalleryClass = "sidebar_menu_item_sel";
+            break;
+        }
+        case ResidentHelper.SubMenu.Links:
+        {
+            LinksClass = "sidebar_menu_item_sel";
+            break;
+        }
+        case ResidentHelper.SubMenu.BookRoom:
+        {
+            BookRoomClass = "sidebar_menu_item_sel";
+            break;
+        }
+    }
+}
+
+<div id="sidebar_menu" class="sidebar_menu">
+    <h1>
+        @_SubMenuPartial.HEADING_NAVIGATION
+    </h1>
+    <div class="sidebar_menu_divider"></div>
+    <div class="@GeneraInformationClass" @GeneraInformationOnClick>
+        <div class="sidebar_menu_text">
+            @_SubMenuPartial.TEXT_GENERAL_INFORMATION
+        </div>
+    </div>
+    <div class="@QuestionsClass" @QuestionsOnClick>
+        <div class="sidebar_menu_text">
+            @_SubMenuPartial.TEXT_FAQ
+        </div>
+    </div>
+    <div class="@GalleryClass" @GalleryOnClick>
+        <div class="sidebar_menu_text">
+            @_SubMenuPartial.TEXT_GALLERY
+        </div>
+    </div>
+    <div class="@LinksClass" @LinksOnClick>
+        <div class="sidebar_menu_text">
+            @_SubMenuPartial.TEXT_LINKS
+        </div>
+    </div>
+    <div class="@BookRoomClass" @BookRoomOnClick>
+        <div class="sidebar_menu_text">
+            @_SubMenuPartial.TEXT_BOOK_ROOM
+        </div>
+    </div>
+</div>

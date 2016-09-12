@@ -1,0 +1,9 @@
+﻿@using MvcGlobalisationSupport
+<div id="login_top">
+    <div id="top_eng">
+        @Html.GlobalisedRouteLink(" ", "en", ViewContext.RouteData, new Dictionary<string, object> {{"class", "lang_eng"}})
+    </div>
+    <div id="top_swe">
+        @Html.GlobalisedRouteLink(" ", "sv", ViewContext.RouteData, new Dictionary<string, object> {{"class", "lang_swe"}})
+    </div>
+</div>

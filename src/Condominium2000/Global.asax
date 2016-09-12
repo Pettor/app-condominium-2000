@@ -1,0 +1,1 @@
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="Condominium2000.MvcApplication" Language="C#" %>

@@ -1,0 +1,68 @@
+﻿@using Condominium2000.Helpers.Models
+@using Condominium2000.Resources.Contact
+@model Condominium2000.Helpers.Models.ContactHelper.SubMenu
+
+@* Which SubMenuItem should be selected *@
+@{
+    var ContactClass = "sidebar_menu_item";
+    var ContactOnClick = "onclick = window.location.href='" + Url.Action("Index") + "'";
+    var ErrorFormClass = "sidebar_menu_item";
+    var ErrorFormOnClick = "onclick = window.location.href='" + Url.Action("ErrorForm") + "'";
+    var BoardFormClass = "sidebar_menu_item";
+    var BoardFormOnClick = "onclick = window.location.href='" + Url.Action("BoardForm") + "'";
+    var ITFormClass = "sidebar_menu_item";
+    var ITFormOnClick = "onclick = window.location.href='" + Url.Action("ITForm") + "'";
+
+    switch (Model)
+    {
+        case ContactHelper.SubMenu.Contact:
+        {
+            ContactClass = "sidebar_menu_item_sel";
+            break;
+        }
+
+        case ContactHelper.SubMenu.ErrorForm:
+        {
+            ErrorFormClass = "sidebar_menu_item_sel";
+            break;
+        }
+
+        case ContactHelper.SubMenu.BoardForm:
+        {
+            BoardFormClass = "sidebar_menu_item_sel";
+            break;
+        }
+        case ContactHelper.SubMenu.ITForm:
+        {
+            ITFormClass = "sidebar_menu_item_sel";
+            break;
+        }
+    }
+}
+
+<div id="sidebar_menu" class="sidebar_menu">
+    <h1>
+        @_SubMenuPartial.HEADING_NAVIGATION
+    </h1>
+    <div class="sidebar_menu_divider"></div>
+    <div class="@ContactClass" @ContactOnClick>
+        <div class="sidebar_menu_text">
+            @_SubMenuPartial.TEXT_CONTACT
+        </div>
+    </div>
+    <div class="@ErrorFormClass" @ErrorFormOnClick>
+        <div class="sidebar_menu_text">
+            @_SubMenuPartial.TEXT_ERROR_FORM
+        </div>
+    </div>
+    <div class="@BoardFormClass" @BoardFormOnClick>
+        <div class="sidebar_menu_text">
+            @_SubMenuPartial.TEXT_BOARD_FORM
+        </div>
+    </div>
+    <div class="@ITFormClass" @ITFormOnClick>
+        <div class="sidebar_menu_text">
+            @_SubMenuPartial.TEXT_IT_FORM
+        </div>
+    </div>
+</div>
