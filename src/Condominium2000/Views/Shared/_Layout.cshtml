@@ -1,0 +1,55 @@
+﻿@using Condominium2000.Helpers
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <link href="@Url.Content("~/Content/JQuery/jquery-ui-1.9.1.custom.css")" rel="stylesheet" type="text/css"/>
+    <link href="@Url.Content("~/Content/Bootstrap/css/bootstrap.min.css")" rel="stylesheet" type="text/css"/>
+    <link href="@Url.Content("~/Content/Site2layout.css")" rel="stylesheet" type="text/css"/>
+    <link href="@Url.Content("~/Content/Site2main.css")" rel="stylesheet" type="text/css"/>
+    <link href="@Url.Content("~/Content/Site2main_specific.css")" rel="stylesheet" type="text/css"/>
+    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,600" rel="stylesheet" type="text/css"/>
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" type="text/css">
+    <script src="@Url.Content("~/Scripts/jquery-1.8.2.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery-ui-1.9.1.custom.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/bootstrap.min.js")" type="text/javascript"></script>
+</head>
+
+<body>
+<div id="center_page" class="center">
+    <div id="page">
+        <div id="header">
+            <div id="header_center" class="center">
+                <div id="header_content">
+                    <div id="header_logo" class="logo"></div>
+                    <div id="header_space"></div>
+                    <div id="header_name">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="menu" class="menu_style">
+            <a name="anchor_info"></a>
+            <div id="menu_center">
+                <div id="menu_content">
+                    @Html.Partial("_MenuPartial")
+
+                    <div id="header_login">
+                        @Html.Partial("_LanguagePartial")
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="content">
+            <div id="login_content">
+                @Html.Partial("_LogInPartial")
+            </div>
+
+            @RenderBody()
+        </div>
+        @Html.Partial("_FooterPartial")
+    </div>
+</div>
+@Html.ReturnAnalyticsScript()
+</body>
+</html>

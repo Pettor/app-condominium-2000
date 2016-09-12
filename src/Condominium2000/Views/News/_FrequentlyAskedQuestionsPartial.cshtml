@@ -1,0 +1,36 @@
+﻿@using Condominium2000.Helpers
+@using Condominium2000.Resources.News
+@using Condominium2000.Resources.Shared
+@model IEnumerable<Condominium2000.Models.Question>
+
+@if (Request.IsAuthenticated)
+{
+    <div class="edit_link">
+        <p>
+            [@Html.ActionLink(EditLabels.LABEL_ADMIN_QUESTIONS, "AdminQuestions", new {controller = "Question"})]
+        </p>
+    </div>
+}
+
+<h1>
+    @_FrequentlyAskedQuestionsPartial.HEADING_DEFAULT
+</h1>
+
+<h3>
+    @_FrequentlyAskedQuestionsPartial.TEXT_EXPLINATION
+</h3>
+
+<div class="sidebar_menu_divider"></div>
+
+@if (Model != null)
+{
+    foreach (var question in Model)
+    {
+        <div id="sidebar_menu_item_{@question.Id}" class="sidebar_menu_item_FRQ" onclick="window.location.href = '@Url.Action("ShowQuestion", new {controller = "Resident", id = question.Id})'">
+            <div class="sidebar_menu_star"></div>
+            <div class="sidebar_menu_text">
+                @Html.ReturnLanguageContent(question, TableContent.Title)
+            </div>
+        </div>
+    }
+}

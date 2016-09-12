@@ -1,0 +1,14 @@
+﻿@model Condominium2000.Models.User
+
+@Html.ValidationMessageFor(x => Model.Username)
+
+@Html.HiddenFor(x => Model.UserId)
+<tr>
+    <td>
+        @Html.TextBoxFor(x => Model.Username)
+    </td>
+    <td>
+        @Html.CheckBoxFor(x => Model.IsApproved)
+    </td>
+    <td></td>
+</tr>

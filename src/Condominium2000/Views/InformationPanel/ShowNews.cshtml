@@ -1,0 +1,50 @@
+﻿@using Condominium2000.Helpers
+@using Condominium2000.Resources.News
+@model Condominium2000.Models.ViewModels.NewsViewModel
+
+@{
+    Layout = "~/Views/InformationPanel/PanelNews_Layout.cshtml";
+    ViewBag.Title = Index.VIEW_BAG_TITLE;
+}
+
+<div id="menu">
+    <div id="menu_center">
+        <div id="menu_content">
+            <div id="menu_space">
+            </div>
+            <div id="menu_back">
+                @Html.ActionLink(" ", "PanelNews", new {controller = "InformationPanel"}, new {@class = "menu_back"})
+            </div>
+
+            <div id="header_login">
+                @Html.Partial("_LanguagePartial")
+            </div>
+        </div>
+    </div>
+</div>
+<div id="content">
+    <div id="content_margin_top"></div>
+    <div id="content_center" class="center">
+        <div id="content_top">
+            <div id="content_margin_left"></div>
+            <div id="content_large_container">
+                <div id="content_large">
+                    <div id="news_item_{@Model.SelectedNews.Id}" class="news_item">
+                        <h1>
+                            @Html.ReturnLanguageContent(Model.SelectedNews, TableContent.Title)
+                        </h1>
+                        <h3>
+                            @Model.SelectedNews.DateCreated
+                        </h3>
+                        <div class="news_item_divider"></div>
+                        <div class="default_html">
+                            @{ var content = Html.ReturnLanguageContent(Model.SelectedNews, TableContent.HtmlContent); }
+                            @{ content = Html.RemovePanelTags(content); }
+                            @Html.Raw(content)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

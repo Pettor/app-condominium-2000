@@ -1,0 +1,53 @@
+﻿@model Condominium2000.Models.Weather
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>InformationPanel</title>
+    <link href="@Url.Content("~/Content/PanelWeather.css")" rel="stylesheet" type="text/css"/>
+
+    <script>
+
+        // Refresh weather information at time specified by YR
+        function refreshAt(hours, minutes, seconds) {
+            var now = new Date();
+            var then = new Date();
+
+            if (now.getHours() > hours ||
+                (now.getHours() == hours && now.getMinutes() > minutes) ||
+                now.getHours() == hours && now.getMinutes() == minutes && now.getSeconds() >= seconds) {
+                then.setDate(now.getDate() + 1);
+            }
+            then.setHours(hours);
+            then.setMinutes(minutes);
+            then.setSeconds(seconds);
+
+            var timeout = (then.getTime() - now.getTime());
+            setTimeout(function() { window.location.reload(true); }, timeout);
+        }
+
+        refreshAt(@Model.NextUpdate.Hour, @Model.NextUpdate.Minute, @Model.NextUpdate.Second);
+
+    </script>
+</head>
+<body>
+<div id="weather_panel">
+    <div class="weather_section">
+        <h2>
+            Väder I dag,
+            @DateTime.Today.ToString("dddd dd.MM.yyyy")
+        </h2>
+
+        <table class="weather_table">
+
+            @Html.Partial("_WeatherInformationTable", Model.Today)
+        </table>
+    </div>
+    <br/>
+    Väderprognos från yr.no , levereras av Meteorologisk institutt och den norska Broadcasting Corporation
+</div>
+</body>
+</html>

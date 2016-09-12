@@ -1,0 +1,89 @@
+﻿@using Condominium2000.Resources.Shared
+@model Condominium2000.Models.ViewModels.NewsViewModel
+
+<!DOCTYPE html>
+
+<meta http-equiv="refresh" content="1800;url=/sv/InformationPanel/PanelNews">
+
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <link href="@Url.Content("~/Content/Site2main.css")" rel="stylesheet" type="text/css"/>
+    <link href="@Url.Content("~/Content/PanelNews.css")" rel="stylesheet" type="text/css"/>
+
+    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,600" rel="stylesheet" type="text/css"/>
+</head>
+
+<body>
+<div id="center_page" class="center">
+    <div id="page">
+        <div id="header">
+            <div id="header_center" class="center">
+                <div id="header_content">
+                    <div id="header_logo" class="logo"></div>
+                    <div id="header_space"></div>
+                    <div id="header_name"></div>
+                </div>
+            </div>
+        </div>
+        @RenderBody()
+        <div id="content_to_footer_margin"></div>
+        <div id="footer">
+            <div id="footer_margin">
+            </div>
+            <div id="footer_center" class="center">
+                <div id="footer_space">
+                </div>
+                <div id="footer_contact">
+                    <div id="contact_icon">
+                        <div class="contact"></div>
+                    </div>
+                    <div id="contact_item" class="footer_item">
+                        <h1>
+                            @_FooterPartial.HEADING_CONTACT</h1>
+                        <div class="footer_item_divider"></div>
+                        <dl>
+                            <dd>
+                                <div class="bullet_arrow"></div>
+                                <div class="bullet_arrow_margin">
+                                    @_FooterPartial.TEXT_CONTACT_EMAIL</div>
+                            </dd>
+                            <dd>
+                                <div class="bullet_arrow"></div>
+                                <div class="bullet_arrow_margin">
+                                    @_FooterPartial.TEXT_CONTACT_ADRESS</div>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+                <div id="footer_web">
+                    <div id="web_icon">
+                        <div class="web"></div>
+                    </div>
+                    <div id="web_item" class="footer_item">
+                        <h1>
+                            @_FooterPartial.HEADING_WEB</h1>
+                        <div class="footer_item_divider"></div>
+                        <dl>
+                            <dd>
+                                <div class="bullet_arrow"></div>
+                                <div class="bullet_arrow_margin">
+                                    @_FooterPartial.TEXT_WEB_INFO_1
+                                </div>
+                            </dd>
+                            <dd>
+                                <div class="bullet_arrow"></div>
+                                <div class="bullet_arrow_margin">
+                                    @_FooterPartial.TEXT_WEB_INFO_2
+                                </div>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--<div id="testdiv"></div>-->
+</div>
+</body>
+</html>

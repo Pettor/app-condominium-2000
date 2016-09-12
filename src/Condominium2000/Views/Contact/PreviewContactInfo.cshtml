@@ -1,0 +1,66 @@
+﻿@using Condominium2000.Resources.Shared
+@model Condominium2000.Models.ContactInfo
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html id="preview_full">
+<head>
+    <title>@ViewBag.Title</title>
+    <link href="@Url.Content("~/Content/JQuery/jquery-ui-1.9.1.custom.css")" rel="stylesheet" type="text/css"/>
+    <link href="@Url.Content("~/Content/Site2main.css")" rel="stylesheet" type="text/css"/>
+    <link href="@Url.Content("~/Content/Site2main_specific.css")" rel="stylesheet" type="text/css"/>
+    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,600" rel="stylesheet" type="text/css"/>
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" type="text/css">
+    <script src="@Url.Content("~/Scripts/jquery-1.8.2.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery-ui-1.9.1.custom.js")" type="text/javascript"></script>
+</head>
+<body id="preview_content">
+
+<script type="text/javascript">
+    $(function() {
+        $('#tabs').tabs();
+        $('#ajax_success').hide(0);
+        $('#ajax_error').hide(0);
+        $('#ajax_preloader').hide(0);
+    });
+</script>
+
+
+<div id="tabs" class="tabs_section">
+    <ul>
+        <li>
+            <a href="#tabs-1">@Translation.BUTTON_TAB_SV</a>
+        </li>
+        <li>
+            <a href="#tabs-2">@Translation.BUTTON_TAB_EN</a>
+        </li>
+    </ul>
+
+    @* SWEDISH *@
+    <div id="tabs-1">
+        <div>
+            <div class="news_item">
+                <div class="default_html">
+                    @Html.Raw(Model.HtmlContentSv)
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @* ENGLISH *@
+    <div id="tabs-2">
+        <div id="preview_field">
+            <div class="news_item">
+                <div class="default_html">
+                    @Html.Raw(Model.HtmlContentEn)
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

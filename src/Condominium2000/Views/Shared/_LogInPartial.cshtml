@@ -1,0 +1,43 @@
+﻿@using Condominium2000.Resources.Shared
+<div class="login_style">
+
+    @if (Request.IsAuthenticated)
+    {
+        <div id="login_name">
+            <p>
+            @User.FirstName
+            @User.LastName
+        </div>
+
+        if (User.IsSuperAdmin())
+        {
+            <div id="login_admin_users">
+                <p>
+                    [@Html.ActionLink(_LogInPartial.BUTTON_ADMIN_USERS, "AdminUsers", "Account")]
+                </p>
+            </div>
+        }
+
+        <div id="login_password">
+            <p>
+                [@Html.ActionLink(_LogInPartial.BUTTON_CHANGE_PASSWORD, "ChangePassword", "Account")]
+            </p>
+        </div>
+
+        <div id="login_status">
+            <p>
+                [@Html.ActionLink(_LogInPartial.BUTTON_LOG_OFF, "LogOff", "Account")]
+            </p>
+        </div>
+    }
+    @* NOT LOGGED IN *@
+    else
+    {
+        <div id="login_status">
+            <p>
+                @Html.ActionLink(" ", "LogOn", new {controller = "Account"}, new {@class = "login_icon"})
+            </p>
+        </div>
+    }
+
+</div>

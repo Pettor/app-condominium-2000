@@ -1,0 +1,31 @@
+﻿@using Condominium2000.Helpers
+@using Condominium2000.Resources.Shared
+@model Condominium2000.Models.Announcement
+
+@if (Request.IsAuthenticated)
+{
+    <div class="create_link">
+        <p>
+            [@Html.ActionLink(EditLabels.LABEL_NEW_ANNOUNCEMENT, "Create", new {controller = "Announcement"})]
+        </p>
+    </div>
+    <div class="edit_link">
+        <p>
+            [@Html.ActionLink(EditLabels.LABEL_EDIT_ANNOUNCEMENT, "AdminAnnouncements", new {controller = "Announcement"})]
+        </p>
+    </div>
+}
+<h1>
+    @Html.ReturnLanguageContent(Model, TableContent.Title)
+</h1>
+
+<h3>
+    @Html.ReturnLanguageContent(Model, TableContent.SubTitle)
+</h3>
+<div class="sidebar_inf_divider"></div>
+
+<div class="default_html">
+    <p>
+        @Html.Raw(Html.ReturnLanguageContent(Model, TableContent.HtmlContent))
+    </p>
+</div>

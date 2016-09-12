@@ -1,0 +1,69 @@
+﻿@using Condominium2000.Helpers.Models
+@using Condominium2000.Resources.Society
+@model Condominium2000.Helpers.Models.SocietyHelper.SubMenu
+
+@* Which SubMenuItem should be selected *@
+@{
+    var SocietyClass = "sidebar_menu_item";
+    var SocietyOnClick = "onclick = window.location.href='" + Url.Action("Index") + "'";
+    var UnionClass = "sidebar_menu_item";
+    var UnionOnClick = "onclick = window.location.href='" + Url.Action("Union") + "'";
+    var AnnualReportClass = "sidebar_menu_item";
+    var AnnualReportOnClick = "onclick = window.location.href='" + Url.Action("AnnualReports") + "'";
+    var AnnualMeetingClass = "sidebar_menu_item";
+    var AnnualMeetingOnClick = "onclick = window.location.href='" + Url.Action("AnnualMeetings") + "'";
+
+    switch (Model)
+    {
+        case SocietyHelper.SubMenu.Society:
+        {
+            SocietyClass = "sidebar_menu_item_sel";
+            break;
+        }
+
+        case SocietyHelper.SubMenu.Union:
+        {
+            UnionClass = "sidebar_menu_item_sel";
+            break;
+        }
+
+        case SocietyHelper.SubMenu.AnnualReport:
+        {
+            AnnualReportClass = "sidebar_menu_item_sel";
+            break;
+        }
+
+        case SocietyHelper.SubMenu.AnnualMeeting:
+        {
+            AnnualMeetingClass = "sidebar_menu_item_sel";
+            break;
+        }
+    }
+}
+
+<div id="sidebar_menu" class="sidebar_menu">
+    <h1>
+        @_SubMenuPartial.HEADING_NAVIGATION
+    </h1>
+    <div class="sidebar_menu_divider"></div>
+    <div class="@SocietyClass" @SocietyOnClick>
+        <div class="sidebar_menu_text">
+            @_SubMenuPartial.TEXT_SOCIETY
+        </div>
+    </div>
+    <div class="@UnionClass" @UnionOnClick>
+        <div class="sidebar_menu_text">
+            @_SubMenuPartial.TEXT_UNION
+        </div>
+    </div>
+    <div class="@AnnualReportClass" @AnnualReportOnClick>
+        <div class="sidebar_menu_text">
+            @_SubMenuPartial.TEXT_ANNUAL_REPORT
+        </div>
+    </div>
+    <div class="@AnnualMeetingClass" @AnnualMeetingOnClick>
+        <div class="sidebar_menu_text">
+            @_SubMenuPartial.TEXT_ANNUAL_MEETING
+        </div>
+    </div>
+</div>

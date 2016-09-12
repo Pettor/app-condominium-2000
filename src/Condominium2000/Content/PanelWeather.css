@@ -1,0 +1,60 @@
+﻿body {
+    background: black;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 75%;
+    margin: 0;
+}
+
+h2 {
+    font-size: 1.5em;
+    font-weight: normal;
+}
+
+/* ###################
+         WEATHER 
+###################### */
+
+/* GENERAL */
+
+.weather_section { width: 100%; }
+
+/* WEATHER TABLE */
+
+.weather_table {
+    border: 0px solid black;
+    border-collapse: collapse;
+    margin: 0 0 0 0;
+    padding: 0px;
+    text-align: center;
+    width: 100%;
+}
+
+.weather_table_header {
+    border-bottom: 1px solid black;
+    font-weight: 600;
+    height: 40px;
+    width: 100%;
+}
+
+.weather_table_tr_wind { background: white; }
+
+.weather_table_even {
+    border-bottom: 1px solid black;
+    height: 30px;
+}
+
+.weather_table_odd {
+    background: #262626;
+    border-bottom: 1px solid black;
+    height: 30px;
+}
+
+.weather_table_divider {
+    background: #dddddd;
+    height: 3px;
+}
+
+.weather_checkbox { width: 40px; }
+
+#weather_panel { padding: 0.8333em 0.8333em 0.8333em 0.8333em; }
