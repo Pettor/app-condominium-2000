@@ -1,0 +1,23 @@
+﻿@using Condominium2000.Helpers
+@using Condominium2000.Resources.Shared
+@model Condominium2000.Models.UnionInfo
+
+@if (Request.IsAuthenticated)
+{
+    <div class="edit_link">
+        <p>
+            [@Html.ActionLink(EditLabels.LABEL_EDIT_UNION_INFO, "EditUnionInfo", new {id = Model.Id})]
+        </p>
+    </div>
+    <br/>
+}
+
+<div id="sidebar_inf" class="sidebar_inf">
+    <h1>
+        @Html.ReturnLanguageContent(Model, TableContent.Title)
+    </h1>
+    <div class="sidebar_inf_divider"></div>
+    <div class="default_html">
+        @Html.Raw(Html.ReturnLanguageContent(Model, TableContent.HtmlContent))
+    </div>
+</div>

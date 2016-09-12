@@ -1,0 +1,106 @@
+﻿@using Condominium2000.Helpers
+@using Condominium2000.Resources
+@using Condominium2000.Resources.AnnualMeeting
+@model Condominium2000.Models.AnnualMeeting
+
+@{
+    ViewBag.Title = Edit.VIEW_BAG_TITLE;
+}
+
+<div id="content_margin_top"></div>
+<div id="content_center" class="center">
+    <div id="content_top">
+        <div id="content_margin_left_xl"></div>
+        <div id="content_full">
+            <div class="default_info">
+                <p class="default_info_a">
+                    @Edit.TEXT_HELP_1
+                </p>
+
+                <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+                <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+                <br/>
+                <div class="default_success">
+                    @TempData["EditAnnualMeetingSuccess"]
+                </div>
+
+                <div class="default_error">
+                    @Html.ValidationSummary(true, Edit.ERROR_EDIT_ANNUAL_MEETING)
+                </div>
+
+                <br/>
+                @using (Html.BeginForm())
+                {
+                    @Html.HiddenFor(m => m.Id)
+                    <fieldset>
+                        <legend>@Edit.TEXT_EDIT_ANNUAL_MEETING</legend>
+                        <div class="default_content">
+                            <br/>
+                            <div class="editor-label">
+                                @SharedLabels.LABEL_NAME_SV
+                            </div>
+                            <div class="editor-field">
+                                @Html.TextBoxFor(m => m.NameSv)
+                                @Html.ValidationMessageFor(m => m.NameSv)
+                            </div>
+
+                            <br/>
+                            <div class="editor-label">
+                                @SharedLabels.LABEL_NAME_EN
+                            </div>
+                            <div class="editor-field">
+                                @Html.TextBoxFor(m => m.NameEn)
+                                @Html.ValidationMessageFor(m => m.NameEn)
+                            </div>
+
+                            <br/>
+                            <div class="editor-label">
+                                @SharedLabels.LABEL_SIZE
+                            </div>
+                            <div class="editor-field">
+                                @Html.TextBoxFor(m => m.FileSize)
+                                @Html.ValidationMessageFor(m => m.FileSize)
+                            </div>
+
+                            <br/>
+                            <div class="editor-label">
+                                @SharedLabels.LABEL_TYPE
+                            </div>
+                            <div class="editor-field">
+                                @Html.TextBoxFor(m => m.FileType)
+                                @Html.ValidationMessageFor(m => m.FileType)
+                            </div>
+
+                            <br/>
+                            <div class="editor-label">
+                                @SharedLabels.LABEL_PATH
+                            </div>
+                            <div class="editor-field">
+                                @Html.TextBoxFor(m => m.FilePath)
+                                @Html.ValidationMessageFor(m => m.FilePath)
+                            </div>
+
+                            <br/>
+                            <p>
+                                <input type="submit" value="@Edit.BUTTON_SAVE"/>
+                            </p>
+                        </div>
+                    </fieldset>
+                }
+            </div>
+        </div>
+    </div>
+    <div id="content_bottom" class="side_border">
+        <div id="bottom_fast_links" class="quick_navigation">
+            <div id="fl_divider">
+                <div class="fl_divider"></div>
+            </div>
+            <div id="fl_space"></div>
+            <div id="fl_news">
+                @Html.ActionLink(ContentBottom.BACK, "AdminAnnualMeetings")
+            </div>
+            @Html.ActionLinkTop(ContentBottom.TOP)
+        </div>
+    </div>
+</div>

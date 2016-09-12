@@ -1,0 +1,207 @@
+﻿@using Condominium2000.Helpers
+@using Condominium2000.Resources
+@using Condominium2000.Resources.Shared
+@using Condominium2000.Resources.Society
+@model Condominium2000.Models.UnionInfo
+
+
+@{
+    ViewBag.Title = EditInfo.VIEW_BAG_TITLE;
+}
+
+
+@* AJAX JAVASCRIPT *@
+@Html.ReturnTranslationFunction(Url.Action("TranslateText"))
+
+
+<div id="content_margin_top"></div>
+
+<div id="content_center" class="center">
+
+    <div id="content_top">
+
+        <div id="content_margin_left_xl"></div>
+
+        <div id="content_full">
+
+            <div class="default_info">
+
+
+                <p class="default_info_a">
+
+                    @EditInfo.TEXT_HELP_1
+                    @Translation.TEXT_HELP
+                </p>
+
+
+                <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+
+                <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+
+                <br/>
+
+                <div class="default_success">
+
+                    @TempData["EditUnionInfoSuccess"]
+                </div>
+
+
+                <div class="default_error">
+
+                    @Html.ValidationSummary(true, EditInfo.ERROR_EDIT_INFO)
+                </div>
+
+
+                <br/>
+
+                @using (Html.BeginForm())
+                {
+                    @Html.HiddenFor(m => m.Id)
+                    <fieldset>
+
+                        <legend>@EditInfo.TEXT_EDIT_INFO</legend>
+
+                        <div class="default_content">
+
+                            <br/>
+
+                            <div id="tabs" class="tabs_section">
+
+                                <ul>
+
+                                    <li>
+                                        <a href="#tabs-1">@Translation.BUTTON_TAB_SV</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#tabs-2">@Translation.BUTTON_TAB_EN</a>
+                                    </li>
+
+                                </ul>
+
+                                @* SWEDISH *@
+                                <div id="tabs-1">
+
+                                    <br/>
+
+                                    <div class="editor-label">
+
+                                        @Translation.LABEL_CONTENT_SV
+                                    </div>
+
+                                    <div class="editor-field">
+
+                                        @Html.TextAreaFor(m => m.ContentSv)
+                                        @Html.ValidationMessageFor(m => m.ContentSv)
+                                    </div>
+
+
+                                    <br/>
+
+                                    <div id="translateSv" class="button_default" onclick="translateText('sv')">
+
+                                        @Translation.BUTTON_TRANSLATE_ENGLISH
+                                    </div>
+
+                                </div>
+
+                                @* ENGLISH *@
+                                <div id="tabs-2">
+
+                                    <br/>
+
+                                    <div class="editor-label">
+
+                                        @Translation.LABEL_CONTENT_EN
+                                    </div>
+
+                                    <div class="editor-field">
+
+                                        @Html.TextAreaFor(m => m.ContentEn)
+                                        @Html.ValidationMessageFor(m => m.ContentEn)
+                                    </div>
+
+
+                                    <br/>
+
+                                    <div id="translateEn" class="button_default" onclick="translateText('en')">
+
+                                        @Translation.BUTTON_TRANSLATE_SWEDISH
+                                    </div>
+
+                                </div>
+
+
+                                <div id="ajax_success" class="default_success">
+
+                                    @Condominium2000.Resources.Shared.Ajax.LABEL_SUCCESS
+                                </div>
+
+
+                                <div id="ajax_error" class="default_error">
+
+                                    @Condominium2000.Resources.Shared.Ajax.LABEL_ERROR
+                                </div>
+
+
+                                <div id="ajax_preloader">
+
+                                    <img src="@Constants.GuiAjaxLoaderPath"/>
+
+                                </div>
+
+                                <br/>
+
+
+                            </div>
+
+
+                            <br/>
+
+                            <div class="button_default">
+                                @Html.ActionLink(Buttons.BUTTON_PREVIEW, "", new {}, new {onClick = Html.ReturnPreviewWindowScript("/Society/PreviewUnionInfo" + "/" + Model.Id, Buttons.BUTTON_PREVIEW)})
+                            </div>
+
+                            <br/>
+
+
+                            <p>
+
+                                <input type="submit" value="@EditInfo.BUTTON_SAVE"/>
+
+                            </p>
+
+                        </div>
+
+                    </fieldset>
+                }
+            </div>
+
+        </div>
+
+    </div>
+
+    <div id="content_bottom" class="side_border">
+
+        <div id="bottom_fast_links" class="quick_navigation">
+
+            <div id="fl_divider">
+
+                <div class="fl_divider"></div>
+
+            </div>
+
+            <div id="fl_space"></div>
+
+            <div id="fl_news">
+
+                @Html.ActionLinkBack(ContentBottom.BACK)
+            </div>
+
+            @Html.ActionLinkTop(ContentBottom.TOP)
+        </div>
+
+    </div>
+
+</div>

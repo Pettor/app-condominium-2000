@@ -1,0 +1,61 @@
+﻿@using Condominium2000.Helpers.Session
+@using Condominium2000.Resources.Shared
+@{
+    var usedClass = "";
+}
+
+<div id="menu_space">
+</div>
+<div id="menu_news">
+
+    @if (SessionHelper.SessionMenu == SessionHelper.Menu.News)
+    {
+        usedClass = _MenuPartial.CLASS_NEWS_SEL;
+    }
+    else
+    {
+        usedClass = _MenuPartial.CLASS_NEWS;
+    }
+
+
+    @Html.ActionLink(" ", "Index", new {controller = "News"}, new {@class = usedClass})
+</div>
+<div id="menu_society">
+    @if (SessionHelper.SessionMenu == SessionHelper.Menu.Society)
+    {
+        usedClass = _MenuPartial.CLASS_SOCIETY_SEL;
+    }
+    else
+    {
+        usedClass = _MenuPartial.CLASS_SOCIETY;
+    }
+
+
+    @Html.ActionLink(" ", "Index", new {controller = "Society"}, new {@class = usedClass})
+</div>
+<div id="menu_resident">
+    @if (SessionHelper.SessionMenu == SessionHelper.Menu.Resident)
+    {
+        usedClass = _MenuPartial.CLASS_RESIDENT_SEL;
+    }
+    else
+    {
+        usedClass = _MenuPartial.CLASS_RESIDENT;
+    }
+
+
+    @Html.ActionLink(" ", "Index", new {controller = "Resident"}, new {@class = usedClass})
+</div>
+<div id="menu_contact">
+    @if (SessionHelper.SessionMenu == SessionHelper.Menu.Contact)
+    {
+        usedClass = _MenuPartial.CLASS_CONTACT_SEL;
+    }
+    else
+    {
+        usedClass = _MenuPartial.CLASS_CONTACT;
+    }
+
+
+    @Html.ActionLink(" ", "Index", new {controller = "Contact"}, new {@class = usedClass})
+</div>

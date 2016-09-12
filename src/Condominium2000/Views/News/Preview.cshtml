@@ -1,0 +1,59 @@
+﻿@using Condominium2000.Resources.Shared
+@model Condominium2000.Models.News
+
+@{
+    Layout = null;
+}
+
+<script type="text/javascript">
+    $(function() {
+        $('#previewTabs').tabs();
+    });
+</script>
+
+<div id="previewTabs" class="tabs_section">
+    <ul>
+        <li>
+            <a href="#tabsPrev-1">@Translation.BUTTON_TAB_SV</a>
+        </li>
+        <li>
+            <a href="#tabsPrev-2">@Translation.BUTTON_TAB_EN</a>
+        </li>
+    </ul>
+
+    @* SWEDISH *@
+    <div id="tabsPrev-1">
+        <div>
+            <div class="news_item">
+                <h1>
+                    @Model.TitleSv
+                </h1>
+                <h3>
+                    @Model.DateCreated
+                </h3>
+                <div class="news_item_divider"></div>
+                <div class="default_html">
+                    @Html.Raw(Model.HtmlContentSv)
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @* ENGLISH *@
+    <div id="tabsPrev-2">
+        <div id="preview_field">
+            <div class="news_item">
+                <h1>
+                    @Model.TitleEn
+                </h1>
+                <h3>
+                    @Model.DateCreated
+                </h3>
+                <div class="news_item_divider"></div>
+                <div class="default_html">
+                    @Html.Raw(Model.HtmlContentEn)
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

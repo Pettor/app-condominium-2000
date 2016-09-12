@@ -1,0 +1,50 @@
+﻿@model Condominium2000.Models.Announcement
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Announcement</legend>
+
+    <div class="display-label">TitleSv</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TitleSv)
+    </div>
+
+    <div class="display-label">TitleEn</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TitleEn)
+    </div>
+
+    <div class="display-label">SubTitleSv</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SubTitleSv)
+    </div>
+
+    <div class="display-label">SubTitleEn</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SubTitleEn)
+    </div>
+
+    <div class="display-label">DateCreated</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DateCreated)
+    </div>
+
+    <div class="display-label">ContentSv</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ContentSv)
+    </div>
+
+    <div class="display-label">ContentEn</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ContentEn)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new {id = Model.Id}) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

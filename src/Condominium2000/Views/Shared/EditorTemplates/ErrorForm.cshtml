@@ -1,0 +1,55 @@
+﻿@using Condominium2000.Resources.Contact
+@model Condominium2000.Models.ErrorForm
+
+<br/>
+<div class="editor-label">
+    @SharedLabels.LABEL_NAME
+</div>
+<div class="editor-field">
+    @Html.TextBoxFor(m => m.Name)
+    @Html.ValidationMessageFor(m => m.Name)
+</div>
+
+<br/>
+<div class="editor-label">
+    @SharedLabels.LABEL_MAIL
+</div>
+<div class="editor-field">
+    @Html.TextBoxFor(m => m.Mail)
+    @Html.ValidationMessageFor(m => m.Mail)
+</div>
+
+<br/>
+<div class="editor-label">
+    @SharedLabels.LABEL_APPARTEMENT_NR
+</div>
+<div class="editor-field">
+    @Html.TextBoxFor(m => m.AppartmentNr)
+    @Html.ValidationMessageFor(m => m.AppartmentNr)
+</div>
+
+<br/>
+<div class="editor-label">
+    @SharedLabels.LABEL_CATEGORY
+</div>
+<div class="editor-field">
+    @Html.DropDownList("SelectedCategory", Model.CategoryList)
+</div>
+
+<br/>
+<div class="editor-label">
+    @SharedLabels.LABEL_TITEL
+</div>
+<div class="editor-field">
+    @Html.TextBoxFor(m => m.Title)
+    @Html.ValidationMessageFor(m => m.Title)
+</div>
+
+<br/>
+<div class="editor-label">
+    @SharedLabels.LABEL_CONTENT
+</div>
+<div class="editor-field">
+    @Html.TextAreaFor(m => m.Content, new {@class = "form"})
+    @Html.ValidationMessageFor(m => m.Content)
+</div>
