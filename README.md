@@ -1,7 +1,7 @@
 ![design](/header.png)
 
 # Condominium 2000
-Just built a condominium and feel it lacks that internets attraction we all crave in 2019? Well this one is quite old, but still take a look ;)
+Just built a condominium and feel it lacks that internets attraction we all crave in modern web? Well this one is quite old but still quite cool ;)
 
 A website using this template can be found at [Navet3](http://www.navet3.se).
 
