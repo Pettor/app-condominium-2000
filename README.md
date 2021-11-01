@@ -19,6 +19,6 @@ The webpage also support switching between two different languages (Swedish and 
 And there actually quite a lot more. An admin interface with secure user models, contact forms, a text editor formatting language, C# 6 features, MVC5 etc.
 
 ## Legacy project
-This is actually a legacy project made long time ago. Still the site this project was built for is still running strong with close to no maintenance. There's also a lot of quite cool implemented features like easy switch between languages for each page, Google translate for news and TwoFactor for login.
+This is actually a legacy project made long time ago. Still the site this project was built for is still running strong with close to no maintenance. There's still several cool features like automatic switch between languages for each page, Google translate for news and TwoFactor for login.
 
 The project has been updated to MVC5 and works out of the box with VS2015.
